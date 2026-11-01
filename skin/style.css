@@ -536,3 +536,10 @@ body.is-home #posts, body#tt-body-index #posts { position: relative; z-index: 4;
 
 /* home list heading reads 캘거리 성장 기록; category and search pages keep the Tistory label */
 body.is-home .not-home, body#tt-body-index .not-home { display: none; }
+
+/* post tables: break only between words (Tistory content CSS breaks inside Korean words); phones get tighter cells and a sideways scroll if a table is still too wide */
+.post-body table th, .post-body table td { word-break: keep-all !important; overflow-wrap: normal !important; }
+@media (max-width: 600px) {
+  .post-body table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 14px; }
+  .post-body th, .post-body td { padding: 8px 8px; }
+}
