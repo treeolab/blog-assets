@@ -122,6 +122,25 @@
     });
   });
 
+  /* ---------- bento clip tile: plays where it sits ---------- */
+  document.querySelectorAll('.t-video').forEach(function (tile) {
+    var v = tile.querySelector('video'), b = tile.querySelector('.t-play');
+    if (!v || !b) return;
+    b.addEventListener('click', function () {
+      if (!v.getAttribute('src')) v.src = v.getAttribute('data-src');
+      if (v.paused) {
+        v.play().then(function () {
+          tile.classList.add('playing');
+          b.setAttribute('aria-label', '영상 멈춤');
+        }).catch(function () {});
+      } else {
+        v.pause();
+        tile.classList.remove('playing');
+        b.setAttribute('aria-label', '영상 재생');
+      }
+    });
+  });
+
   /* ---------- home slideshow ---------- */
   var hero = document.querySelector('.hero');
   if (!hero) return;
