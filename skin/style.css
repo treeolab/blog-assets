@@ -515,3 +515,21 @@ body.is-home #posts, body#tt-body-index #posts { position: relative; z-index: 4;
 .post-reply textarea { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.2) transparent; }
 /* comments are login-only (owner's choice, 2026-11-01): hide the guest name/password fields */
 .post-reply .tt-box-account { display: none !important; }
+
+/* ---------- v0.6.6 fixes ---------- */
+/* the clip tile keeps the grid row height everywhere (an old bento min-height pushed it into the next tile) */
+.list .t-video { min-height: 0; }
+/* the play button hides while the clip plays; only devices with a real hover bring it back */
+.t-video.playing:hover .t-play { opacity: 0; }
+@media (hover: hover) { .t-video.playing:hover .t-play { opacity: 1; } }
+/* Tistory appends a tiny "new" gif to list titles */
+.item h3 img, .item h2 img { display: none; }
+/* paging: Tistory marks the current page on a span inside the link */
+.paging .selected { background: none; color: inherit; }
+.paging a:has(.selected) { background: var(--ink); color: var(--snow); }
+.paging:not(:has(a[href] ~ a[href])) { display: none; }
+/* phones: a smaller headline that never reaches the place label, which moves out of the way */
+@media (max-width: 560px) {
+  .hero-copy h1 { font-size: clamp(36px, 10.4vw, 46px); }
+  .hero-place { display: none; }
+}
