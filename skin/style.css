@@ -172,10 +172,10 @@ body:not(.is-home):not(#tt-body-index) .bento-band { display: none; }
 
 .t-sched { grid-area: sched; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
 .t-pill { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; height: 40px; padding: 0 18px 0 14px; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); font-size: 15px; font-weight: 600; }
-.t-pill i { width: 10px; height: 10px; border-radius: 50%; background: #ff7a45; box-shadow: 0 0 0 4px rgba(255,122,69,.18); }
+.t-pill i { width: 10px; height: 10px; border-radius: 50%; background: #ff7a45; }
 .t-sched p { font-size: 14px; color: rgba(242,243,245,.62); }
 
-.t-num { font-size: clamp(44px, 2rem + 2vw, 60px); line-height: 1; font-weight: 800; letter-spacing: -0.04em; background: linear-gradient(180deg, #ffd2a6, #ff7a45); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.t-num { font-size: clamp(44px, 2rem + 2vw, 60px); line-height: 1; font-weight: 800; letter-spacing: -0.04em; color: #ff9466; }
 .t-num small { font-size: .38em; margin-left: 4px; letter-spacing: 0; }
 .t-label { margin-top: 10px !important; font-size: 15px; color: rgba(242,243,245,.72); }
 .t-apps { grid-area: apps; display: flex; flex-direction: column; gap: 6px; }
@@ -189,10 +189,10 @@ body:not(.is-home):not(#tt-body-index) .bento-band { display: none; }
 .t-cta { grid-area: cta; display: grid; place-items: center; }
 .t-btn {
   display: inline-flex; align-items: center; height: 52px; padding: 0 28px; border-radius: 999px; font-weight: 700; font-size: 16px; color: #fff;
-  background: linear-gradient(180deg, #d4492e, #9f2219); box-shadow: 0 10px 30px -8px rgba(212,73,46,.7), inset 0 1px 0 rgba(255,255,255,.25);
-  transition: transform .2s ease, box-shadow .2s ease;
+  background: linear-gradient(180deg, #d4492e, #9f2219); box-shadow: 0 8px 20px -10px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.25);
+  transition: transform .2s ease, background-color .2s ease;
 }
-.t-btn:hover { transform: translateY(-1px); box-shadow: 0 14px 34px -8px rgba(212,73,46,.85), inset 0 1px 0 rgba(255,255,255,.25); }
+.t-btn:hover { transform: translateY(-1px); }
 
 .t-video, .t-photo { padding: 0; margin: 0; }
 .t-video { grid-area: video; }
@@ -202,7 +202,7 @@ body:not(.is-home):not(#tt-body-index) .bento-band { display: none; }
 .t-photo:hover img { transform: scale(1.05); }
 .t-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,0) 55%); }
 .t-photo strong { position: absolute; z-index: 1; left: 22px; bottom: 20px; font-size: 19px; font-weight: 700; letter-spacing: -0.02em; }
-.t-chip { position: absolute; z-index: 1; left: 18px; top: 18px; padding: 5px 11px; border-radius: 999px; background: rgba(10,12,15,.6); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font-size: 12px; font-weight: 600; color: #fff; }
+.t-chip { position: absolute; z-index: 1; left: 18px; top: 18px; padding: 6px 12px; border-radius: 999px; background: rgba(10,12,15,.6); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font-size: 12px; font-weight: 600; color: #fff; }
 .t-play {
   position: absolute; z-index: 1; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%;
   border: 0; background: #fff; color: var(--ink); display: grid; place-items: center; cursor: pointer;
