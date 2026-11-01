@@ -513,3 +513,5 @@ body.is-home #posts, body#tt-body-index #posts { position: relative; z-index: 4;
 .post-reply .tt_box_namecard .tt_wrap_thumb { width: 72px !important; height: 72px !important; border-radius: 50%; overflow: hidden; background: #fff; }
 .post-reply .tt_box_namecard .tt_thumb_g { width: 100% !important; height: 100% !important; border: 0; background-position: center; }
 .post-reply textarea { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.2) transparent; }
+/* comments are login-only (owner's choice, 2026-11-01): hide the guest name/password fields */
+.post-reply .tt-box-account { display: none !important; }
