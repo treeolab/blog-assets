@@ -393,3 +393,11 @@ body:not(.is-home):not(#tt-body-index) .home-only { display: none; }
 .side-nav .cat-toggle::before { content: ""; width: 7px; height: 7px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: rotate(-45deg); transition: transform .2s ease; }
 .side-nav .has-sub.open > .cat-toggle::before { transform: rotate(45deg); }
 .side-nav .cat-toggle:hover { color: var(--ink); background: rgba(255,255,255,.06); }
+
+/* guestbook tile */
+.list .t-guest { grid-column: span 1; grid-row: span 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; padding: 22px; color: #fff; transition: background .2s ease; }
+.t-guest svg { width: 26px; height: 26px; margin-bottom: auto; color: #ffb39c; }
+.t-guest strong { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+.t-guest span { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,.65); }
+.t-guest:hover { background: linear-gradient(180deg, #222731, #1a1e25); }
+.side-search { margin-top: -4px; }
