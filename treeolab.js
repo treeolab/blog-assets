@@ -151,10 +151,22 @@
     });
   });
 
-  /* ---------- bento clip tile: plays where it sits ---------- */
+  /* ---------- bento clip tile: one of the slideshow clips, picked fresh each visit; plays where it sits ---------- */
+  var CLIPS = [
+    ['hero-v01', '레이크 루이스 근처 보우강'],
+    ['hero-v02', '첫 겨울, 프레리 너머 로키'],
+    ['hero-v03', '드럼헬러 가는 길'],
+    ['hero-v05', '드럼헬러 근처 여름 들판']
+  ];
   document.querySelectorAll('.t-video').forEach(function (tile) {
     var v = tile.querySelector('video'), b = tile.querySelector('.t-play');
     if (!v || !b) return;
+    var pick = CLIPS[Math.floor(Math.random() * CLIPS.length)];
+    var base = v.getAttribute('data-src').replace(/hero-v\d+-sm\.mp4$/, '');
+    v.setAttribute('data-src', base + pick[0] + '-sm.mp4');
+    v.setAttribute('poster', base + pick[0] + '.jpg');
+    var chip = tile.querySelector('.t-chip');
+    if (chip) chip.textContent = pick[1];
     b.addEventListener('click', function () {
       if (!v.getAttribute('src')) v.src = v.getAttribute('data-src');
       if (v.paused) {
