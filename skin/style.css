@@ -594,3 +594,20 @@ body:not(.is-home):not(#tt-body-index) .top-nav .link_item:hover { background: v
 .post-reply .tt_box_namecard .tt_thumb_g { display: none !important; }
 .post-reply .tt_box_namecard .tt_tit_cont { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .post-reply .tt_box_namecard .tt_desc { margin-top: 0; }
+/* the hero dissolves into the white page instead of a white sheet with a hard rounded edge (owner, 2026-11-01);
+   the headline and controls sit above the fade so they stay on the dark part of the video */
+.hero-shade {
+  background:
+    linear-gradient(0deg, var(--snow) 0, var(--snow) 12px, rgba(255,255,255,.93) 50px, rgba(255,255,255,.72) 95px, rgba(255,255,255,.4) 145px, rgba(255,255,255,.14) 195px, rgba(255,255,255,0) 240px),
+    linear-gradient(180deg, rgba(8,12,16,.5) 0%, rgba(8,12,16,0) 18%),
+    linear-gradient(90deg, rgba(8,12,16,.55) 0%, rgba(8,12,16,.2) 42%, rgba(8,12,16,0) 70%),
+    linear-gradient(0deg, rgba(8,12,16,0) 0, rgba(8,12,16,0) 230px, rgba(8,12,16,.35) 320px, rgba(8,12,16,0) 62%);
+}
+.hero-copy { bottom: clamp(270px, 32vh, 320px); }
+.hero-ui { bottom: clamp(205px, 24vh, 225px); }
+body.is-home #posts, body#tt-body-index #posts { margin-top: -40px; padding-top: 0; background: none; border-radius: 0; }
+@media (max-width: 900px) {
+  .hero-copy { bottom: 230px; }
+  .hero-ui { bottom: 170px; }
+  body.is-home #posts, body#tt-body-index #posts { margin-top: -30px; padding-top: 0; border-radius: 0; }
+}
