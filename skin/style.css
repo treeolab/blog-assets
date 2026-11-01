@@ -509,3 +509,7 @@ body.is-home #posts, body#tt-body-index #posts { position: relative; z-index: 4;
 .post-reply .tt-list-reply, .post-reply .tt-item-reply, .post-reply .tt-list-reply-comment { border-color: var(--line) !important; background: none !important; }
 .post-reply .tt-link-user, .post-reply .tt-txt-mention { color: var(--ink) !important; }
 .post-reply .tt_date, .post-reply .tt-btn_reply { color: var(--mute) !important; }
+.post-reply .tt_box_namecard { min-height: 0 !important; }
+.post-reply .tt_box_namecard .tt_wrap_thumb { width: 72px !important; height: 72px !important; border-radius: 50%; overflow: hidden; background: #fff; }
+.post-reply .tt_box_namecard .tt_thumb_g { width: 100% !important; height: 100% !important; border: 0; background-position: center; }
+.post-reply textarea { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.2) transparent; }
