@@ -401,3 +401,7 @@ body:not(.is-home):not(#tt-body-index) .home-only { display: none; }
 .t-guest span { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,.65); }
 .t-guest:hover { background: linear-gradient(180deg, #222731, #1a1e25); }
 .side-search { margin-top: -4px; }
+
+/* article meta row */
+.post-head .item-meta { display: flex; gap: 10px; align-items: center; font-size: 13px; color: var(--mute); }
+.post-head .item-meta .cat { color: var(--maple); font-weight: 600; }
