@@ -533,3 +533,6 @@ body.is-home #posts, body#tt-body-index #posts { position: relative; z-index: 4;
   .hero-copy h1 { font-size: clamp(36px, 10.4vw, 46px); }
   .hero-place { display: none; }
 }
+
+/* home list heading reads 캘거리 성장 기록; category and search pages keep the Tistory label */
+body.is-home .not-home, body#tt-body-index .not-home { display: none; }
