@@ -611,3 +611,5 @@ body.is-home #posts, body#tt-body-index #posts { margin-top: -40px; padding-top:
   .hero-ui { bottom: 170px; }
   body.is-home #posts, body#tt-body-index #posts { margin-top: -30px; padding-top: 0; border-radius: 0; }
 }
+/* Tistory puts a 32px top/right margin on the thumbnail box, which pushed the logo down from the card's top edge */
+.post-reply .tt_box_namecard .tt_wrap_thumb { margin: 0 !important; }
