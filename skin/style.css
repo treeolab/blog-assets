@@ -434,3 +434,78 @@ body.is-home #posts, body#tt-body-index #posts { position: relative; z-index: 4;
 /* Tistory's content CSS zeroes paragraph margins (tt_article_useless_p_margin); put the reading rhythm back */
 .post-body .tt_article_useless_p_margin p, .post-body .contents_style p { margin: 0 0 1.2em !important; }
 .post-body .post-credit, .post-body .contents_style p.post-credit { margin-top: 40px !important; font-size: 13px; color: var(--mute); }
+
+/* ---------- post footer: the Tistory like/share/subscribe bar, tags, profile card, comments ---------- */
+/* like / share / subscribe: one row of quiet pills; subscribe is the one filled button */
+.post-body .container_postbtn { display: flex !important; flex-wrap: wrap; align-items: center; gap: 8px; margin: 56px 0 0 !important; padding: 0 !important; border: 0 !important; height: auto !important; }
+.post-body .container_postbtn .postbtn_like { display: flex !important; align-items: center; float: none !important; height: 40px; padding: 0 6px !important; border-radius: 999px !important; border: 1px solid var(--line) !important; background: var(--frost) !important; }
+.post-body .container_postbtn .wrap_btn { float: none !important; display: flex; align-items: center; }
+.post-body .container_postbtn .btn_post { height: 38px !important; padding: 0 10px !important; color: var(--ink) !important; background: none !important; border: 0 !important; }
+.post-body .container_postbtn .uoc-icon { display: flex; align-items: center; gap: 6px; }
+.post-body .container_postbtn .txt_like { font-size: 14px !important; font-weight: 600; color: var(--ink) !important; }
+.post-body .container_postbtn .ico_postbtn { filter: invert(1) brightness(1.4); opacity: .85; }
+.post-body .container_postbtn .btn_subscription {
+  float: none !important; display: inline-flex !important; align-items: center; gap: 6px; height: 40px !important; margin: 0 !important; padding: 0 18px !important;
+  border-radius: 999px !important; border: 0 !important; background: var(--maple) !important; color: #1b0f0b !important; font-size: 14px !important; font-weight: 700;
+}
+.post-body .container_postbtn .btn_subscription .txt_state { font-style: normal; color: inherit !important; font-size: 14px; }
+.post-body .container_postbtn .btn_subscription .txt_tool_id, .post-body .container_postbtn .btn_subscription .ico_check_type1 { display: none !important; }
+.post-body .container_postbtn .btn_subscription.following { background: var(--frost) !important; color: var(--ink) !important; border: 1px solid var(--line) !important; }
+.post-body .container_postbtn .layer_post { background: #1b1f26 !important; border: 1px solid var(--line) !important; border-radius: 14px !important; }
+.post-body .container_postbtn .layer_post .txt_sns, .post-body .container_postbtn .layer_post a, .post-body .container_postbtn .layer_post button { color: var(--ink) !important; }
+
+/* tags: Tistory joins them with ", " text; hide the commas */
+.post-tags { font-size: 0; }
+.post-tags a { font-size: 13px; }
+
+/* profile card */
+.post-reply .tt_box_namecard {
+  display: flex !important; align-items: center; gap: 24px; margin: 0 0 48px !important; padding: 28px 30px !important; height: auto !important;
+  border-radius: 22px; background: linear-gradient(180deg, #1b1f26, #15181e) !important; border: 1px solid rgba(255,255,255,.07) !important;
+}
+.post-reply .tt_box_namecard .tt_cont { flex: 1; float: none !important; width: auto !important; padding: 0 !important; }
+.post-reply .tt_box_namecard .tt_tit_cont { display: block; font-size: 18px !important; font-weight: 800; letter-spacing: -0.02em; color: var(--ink) !important; }
+.post-reply .tt_box_namecard .tt_desc { display: block; margin-top: 6px; font-size: 14px !important; line-height: 1.65 !important; color: var(--mute) !important; }
+.post-reply .tt_box_namecard .tt_btn_subscribe {
+  display: inline-flex !important; align-items: center; gap: 6px; height: 38px !important; margin-top: 16px !important; padding: 0 18px !important;
+  border-radius: 999px !important; border: 0 !important; background: var(--maple) !important; color: #1b0f0b !important; font-size: 14px; font-weight: 700;
+}
+.post-reply .tt_box_namecard .tt_btn_subscribe .tt_txt_g { color: inherit !important; font-size: 14px !important; }
+.post-reply .tt_box_namecard .tt_btn_subscribe .tt_ico_cross { filter: brightness(0) opacity(.8); }
+.post-reply .tt_box_namecard .tt_wrap_thumb { position: static !important; flex: none; }
+.post-reply .tt_box_namecard .tt_thumb_g { display: block; width: 72px !important; height: 72px !important; border-radius: 50%; background-size: cover; background-color: #fff; border: 3px solid rgba(255,255,255,.08); }
+
+/* comment form and list */
+.post-reply .tt-box-total { padding-bottom: 16px !important; border-bottom: 1px solid var(--line) !important; }
+.post-reply .tt-box-total .tt_txt_g, .post-reply .tt-box-total .tt_num_g { font-size: 17px !important; font-weight: 800; color: var(--ink) !important; }
+.post-reply .tt-box-total .tt_num_g { color: var(--maple) !important; margin-left: 4px; }
+.post-reply .tt-area-write { display: flex !important; gap: 14px; padding-top: 24px !important; }
+.post-reply .tt-box-thumb { flex: none; float: none !important; }
+.post-reply .tt-thumbnail { width: 40px !important; height: 40px !important; border-radius: 50% !important; background-color: var(--frost); }
+.post-reply .tt_wrap_write { flex: 1; margin: 0 !important; }
+.post-reply .tt-box-account { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px !important; }
+.post-reply .tt-box-account input, .post-reply .tt-box-textarea {
+  width: 100% !important; margin: 0 !important; border-radius: 14px !important; background: var(--frost) !important; color: var(--ink) !important;
+  border: 1px solid var(--line) !important; font: inherit; font-size: 15px !important; box-shadow: none !important;
+}
+.post-reply .tt-box-account input { height: 46px !important; padding: 0 16px !important; }
+.post-reply .tt-box-textarea { padding: 0 !important; overflow: hidden; }
+.post-reply .tt-box-textarea .tt-inner-g { padding: 0 !important; background: none !important; border: 0 !important; }
+.post-reply .tt-box-textarea textarea, .post-reply .tt-cmt {
+  display: block; width: 100% !important; min-height: 120px; margin: 0 !important; padding: 14px 16px !important; border: 0 !important; resize: vertical;
+  background: none !important; color: var(--ink) !important; font: inherit; font-size: 15px !important; box-shadow: none !important;
+}
+.post-reply .tt_txt_user { display: block; padding: 12px 16px 0 !important; font-size: 13px; color: var(--mute) !important; }
+.post-reply .tt-box-account input:focus, .post-reply .tt-box-textarea:focus-within { outline: none; border-color: rgba(255,255,255,.35) !important; }
+.post-reply textarea:focus, .post-reply .tt-cmt:focus { outline: none; }
+.post-reply ::placeholder, .post-reply .tt-cmt:empty::before { color: var(--mute) !important; }
+.post-reply .tt-box-write { display: flex !important; justify-content: flex-end; align-items: center; gap: 14px; margin-top: 10px !important; }
+.post-reply .tt-xe-label-text { font-size: 13px; color: var(--mute) !important; }
+.post-reply .tt-btn_register {
+  height: 40px !important; min-width: 76px; padding: 0 20px !important; border-radius: 999px !important; border: 0 !important;
+  background: var(--maple) !important; color: #1b0f0b !important; font-size: 14px !important; font-weight: 700;
+}
+.post-reply .tt-btn_register:disabled { background: var(--frost) !important; color: var(--mute) !important; }
+.post-reply .tt-list-reply, .post-reply .tt-item-reply, .post-reply .tt-list-reply-comment { border-color: var(--line) !important; background: none !important; }
+.post-reply .tt-link-user, .post-reply .tt-txt-mention { color: var(--ink) !important; }
+.post-reply .tt_date, .post-reply .tt-btn_reply { color: var(--mute) !important; }
