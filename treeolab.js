@@ -3,7 +3,7 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- mobile menu ---------- */
-  var btn = document.querySelector('.mbar-btn');
+  var btn = document.querySelector('.top-menu');
   if (btn) {
     btn.addEventListener('click', function () {
       var open = document.body.classList.toggle('nav-open');
@@ -11,9 +11,15 @@
     });
   }
 
-  /* ---------- sidebar: subcategories start closed; the current one opens ---------- */
+  /* ---------- top bar: solid once scrolled; on phones, subcategories start closed ---------- */
+  var top = document.querySelector('.top');
+  if (top) {
+    var setSolid = function () { top.classList.toggle('solid', window.scrollY > 40); };
+    setSolid();
+    window.addEventListener('scroll', setSolid, { passive: true });
+  }
   var here = decodeURIComponent(location.pathname);
-  document.querySelectorAll('.side-nav .category_list > li').forEach(function (li) {
+  document.querySelectorAll('.top-nav .category_list > li').forEach(function (li) {
     var sub = li.querySelector('.sub_category_list');
     var head = li.querySelector('.link_item');
     if (!sub || !head) return;
