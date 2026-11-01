@@ -11,6 +11,29 @@
     });
   }
 
+  /* ---------- sidebar: subcategories start closed; the current one opens ---------- */
+  var here = decodeURIComponent(location.pathname);
+  document.querySelectorAll('.side-nav .category_list > li').forEach(function (li) {
+    var sub = li.querySelector('.sub_category_list');
+    var head = li.querySelector('.link_item');
+    if (!sub || !head) return;
+    li.classList.add('has-sub');
+    var t = document.createElement('button');
+    t.type = 'button';
+    t.className = 'cat-toggle';
+    t.setAttribute('aria-label', head.textContent.replace(/\(\d+\)/, '').trim() + ' 하위 주제');
+    head.after(t);
+    var open = Array.prototype.some.call(li.querySelectorAll('a'), function (a) {
+      try { var u = new URL(a.href); return !a.getAttribute("href").startsWith("#") && decodeURIComponent(u.pathname) === here; } catch (e) { return false; }
+    });
+    li.classList.toggle('open', open);
+    t.setAttribute('aria-expanded', open);
+    t.addEventListener('click', function () {
+      var o = li.classList.toggle('open');
+      t.setAttribute('aria-expanded', o);
+    });
+  });
+
   function linkHref(id, fallback) {
     var el = document.getElementById(id);
     return el ? el.href : fallback;
