@@ -1,14 +1,16 @@
 /* TreeoLab skin v0.2
    Palette from the maple logo on snow white. Pretendard throughout.
    Home: full-bleed Canada slideshow, then a centred card grid. */
+/* dark theme: page, sidebar and bento share one near-black ground */
 :root {
-  --snow: #ffffff;
-  --frost: #f3f5f7;
-  --ink: #1d1d1f;
-  --bark: #4a3a30;
-  --mute: #6e6e73;
-  --line: #e4e6ea;
-  --maple: #b3261e;
+  color-scheme: dark;
+  --snow: #0e1115;
+  --frost: #1a1e25;
+  --ink: #eef0f3;
+  --bark: #dccfc6;
+  --mute: #9198a1;
+  --line: rgba(255,255,255,.09);
+  --maple: #ff6f4a;
   --side-w: 264px;
   --wrap: 1180px;
   --text: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
@@ -26,7 +28,7 @@ img { max-width: 100%; display: block; }
 button { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--maple); outline-offset: 3px; border-radius: 6px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-.skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: #fff; padding: 8px 14px; border-radius: 8px; z-index: 100; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: var(--snow); padding: 8px 14px; border-radius: 8px; z-index: 100; }
 .skip:focus { left: 8px; }
 
 /* ---------- shell ---------- */
@@ -61,7 +63,7 @@ button { font: inherit; color: inherit; }
   border: 1px solid var(--line); border-radius: 999px; background: var(--frost);
   font: inherit; font-size: 14px; color: var(--ink);
 }
-.side-search input:focus { outline: none; border-color: var(--ink); background: #fff; }
+.side-search input:focus { outline: none; border-color: var(--ink); background: var(--frost); }
 .side-foot { margin-top: auto; display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--mute); }
 .side-foot a:hover { color: var(--ink); }
 .side-foot p { flex-basis: 100%; margin: 6px 0 0; }
@@ -98,7 +100,7 @@ body:not(.is-home):not(#tt-body-index) .hero { display: none; }
   border-radius: 999px; font-size: 15px; font-weight: 600; border: 1px solid transparent; cursor: pointer;
   transition: background-color .2s ease, color .2s ease, border-color .2s ease;
 }
-.btn-light { background: #fff; color: var(--ink); }
+.btn-light { background: #fff; color: #1d1d1f; }
 .btn-light:hover { background: var(--frost); }
 .btn-ghost { background: rgba(255,255,255,.12); color: #fff; border-color: rgba(255,255,255,.4); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 .btn-ghost:hover { background: rgba(255,255,255,.22); }
@@ -205,7 +207,7 @@ body:not(.is-home):not(#tt-body-index) .bento-band { display: none; }
 .t-chip { position: absolute; z-index: 1; left: 18px; top: 18px; padding: 6px 12px; border-radius: 999px; background: rgba(10,12,15,.6); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font-size: 12px; font-weight: 600; color: #fff; }
 .t-play {
   position: absolute; z-index: 1; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%;
-  border: 0; background: #fff; color: var(--ink); display: grid; place-items: center; cursor: pointer;
+  border: 0; background: #fff; color: #1d1d1f; display: grid; place-items: center; cursor: pointer;
   box-shadow: 0 10px 30px rgba(0,0,0,.35); transition: transform .2s ease, opacity .3s ease;
 }
 .t-play svg { width: 20px; height: 20px; margin-left: 3px; }
@@ -239,7 +241,7 @@ body:not(.is-home):not(#tt-body-index) .bento-band { display: none; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { height: 36px; padding: 0 16px; display: inline-flex; align-items: center; border-radius: 999px; border: 1px solid var(--line); font-size: 14px; font-weight: 500; color: var(--ink); transition: border-color .2s ease, background-color .2s ease; }
 .chip:hover { border-color: var(--ink); }
-.chip.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.chip.on { background: var(--ink); border-color: var(--ink); color: var(--snow); }
 
 /* cards in masonry columns: each thumbnail keeps its own height */
 .list { column-count: 3; column-gap: 24px; }
@@ -258,7 +260,7 @@ body:not(.is-home):not(#tt-body-index) .bento-band { display: none; }
 .paging { display: flex; justify-content: center; gap: 6px; padding: 40px 0 8px; }
 .paging a { min-width: 40px; height: 40px; padding: 0 12px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; font-size: 14px; color: var(--mute); }
 .paging a:hover { background: var(--frost); color: var(--ink); }
-.paging a.on, .paging .selected { background: var(--ink); color: #fff; }
+.paging a.on, .paging .selected { background: var(--ink); color: var(--snow); }
 .paging a.no-more-prev, .paging a.no-more-next { visibility: hidden; }
 
 .foot { margin-top: 56px; padding-top: 32px; padding-bottom: 48px; font-size: 13px; color: var(--mute); }
@@ -297,14 +299,14 @@ body:not(.is-home):not(#tt-body-index) .bento-band { display: none; }
 .related li span { font-size: 13px; color: var(--mute); white-space: nowrap; }
 .protected { max-width: 420px; padding: 40px 0; display: grid; gap: 12px; }
 .protected input { height: 42px; padding: 0 14px; border: 1px solid var(--line); border-radius: 10px; font: inherit; }
-.protected button { height: 42px; border: 0; border-radius: 999px; background: var(--ink); color: #fff; }
+.protected button { height: 42px; border: 0; border-radius: 999px; background: var(--ink); color: var(--snow); }
 
 /* ---------- logo grow layer ---------- */
 .grow-layer {
   position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; align-content: center; gap: 14px;
   background: rgba(255,255,255,0); transition: background .4s ease; cursor: pointer;
 }
-.grow-layer.on { background: #fff; }
+.grow-layer.on { background: var(--snow); }
 .grow-stage { width: min(58vmin, 440px); aspect-ratio: 1; }
 .grow-stage svg { width: 100%; height: 100%; overflow: visible; }
 .grow-name { width: min(40vmin, 300px); height: auto; opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
@@ -317,11 +319,11 @@ body:not(.is-home):not(#tt-body-index) .bento-band { display: none; }
   .shell { grid-template-columns: 1fr; }
   .mbar {
     display: flex; position: sticky; top: 0; z-index: 30; align-items: center; justify-content: space-between;
-    height: 56px; padding: 0 16px; background: rgba(255,255,255,.92);
+    height: 56px; padding: 0 16px; background: rgba(14,17,21,.88);
     -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line);
   }
   .mbar-logo img { height: 30px; width: auto; }
-  .mbar-btn { height: 34px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: #fff; font-size: 14px; }
+  .mbar-btn { height: 34px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: transparent; font-size: 14px; }
   .side {
     position: fixed; top: 56px; left: 0; bottom: 0; width: min(86vw, 320px); height: auto; z-index: 25;
     transform: translateX(-100%); transition: transform .25s ease; padding: 28px 24px 28px 30px;
@@ -341,3 +343,13 @@ body:not(.is-home):not(#tt-body-index) .bento-band { display: none; }
   .side, .slide, .hero-place { transition: none; }
   .slide.on img { animation: none; }
 }
+
+/* dark theme details: the wordmark file is dark ink, so flip it on the dark ground */
+.side-logo .wordmark, .grow-name { filter: invert(1) brightness(1.15); }
+.side { background: #0b0e11; border-right-color: rgba(255,255,255,.06); }
+.side-nav .link_tit, .side-nav .link_item, .side-nav > a { color: #e6e8eb; }
+.side-search input { background: #161a20; border-color: rgba(255,255,255,.08); }
+.item h3, .item h2 { color: var(--ink); }
+.post-body { color: #e3e6ea; }
+.post-reply, .post-reply * { color: inherit; }
+.post-reply input, .post-reply textarea { background: var(--frost); color: var(--ink); border-color: var(--line); }
