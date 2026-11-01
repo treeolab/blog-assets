@@ -1,16 +1,19 @@
 /* TreeoLab skin v0.2
    Palette from the maple logo on snow white. Pretendard throughout.
    Home: full-bleed Canada slideshow, then a centred card grid. */
-/* dark theme: one near-black ground; the top bar floats over the hero */
+/* white ground; the hero video stays dark and the top bar floats over it.
+   --maple is the logo's own red, dark enough for text on white. */
 :root {
-  color-scheme: dark;
-  --snow: #0e1115;
-  --frost: #1a1e25;
-  --ink: #eef0f3;
-  --bark: #dccfc6;
-  --mute: #9198a1;
-  --line: rgba(255,255,255,.09);
-  --maple: #ff6f4a;
+  color-scheme: light;
+  --snow: #ffffff;
+  --frost: #f3f4f6;
+  --ink: #16191e;
+  --body: #2a2e35;
+  --bark: #3d424a;
+  --mute: #6b717b;
+  --line: rgba(22,25,30,.10);
+  --maple: #b42a1e;
+  --maple-tint: rgba(180,42,30,.08);
   --top-h: 72px;
   --wrap: 1440px;
   --text: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
@@ -220,7 +223,7 @@ body:not(.is-home):not(#tt-body-index) .bento-band { display: none; }
 .list .t-links { grid-column: span 1; grid-row: span 1; }
 body:not(.is-home):not(#tt-body-index) .home-only { display: none; }
 
-.item { position: relative; overflow: hidden; border-radius: 22px; background: linear-gradient(180deg, #1b1f26, #15181e); border: 1px solid rgba(255,255,255,.07); }
+.item { position: relative; overflow: hidden; border-radius: 22px; background: var(--frost); border: 1px solid var(--line); }
 .item:nth-of-type(6n+1) { grid-column: span 2; grid-row: span 2; }
 .item:nth-of-type(6n+2) { grid-row: span 2; }
 .item:nth-of-type(6n+5) { grid-column: span 2; }
@@ -230,7 +233,7 @@ body:not(.is-home):not(#tt-body-index) .home-only { display: none; }
 .item:has(.item-img) > a::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgba(6,8,10,.85) 0%, rgba(6,8,10,.35) 45%, rgba(6,8,10,0) 75%); }
 .item-body { position: relative; z-index: 2; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px; }
 .item .cat { align-self: flex-start; padding: 5px 11px; border-radius: 999px; background: rgba(10,12,15,.6); border: 1px solid rgba(255,255,255,.12); font-size: 12px; font-weight: 600; color: #fff; }
-.item:not(:has(.item-img)) .cat { background: rgba(255,111,74,.14); border-color: rgba(255,111,74,.35); color: #ffb39c; }
+.item:not(:has(.item-img)) .cat { background: var(--maple-tint); border-color: transparent; color: var(--maple); }
 .item h3, .item h2 { margin: 4px 0 0; font-size: 18px; line-height: 1.38; font-weight: 700; letter-spacing: -0.02em; color: #fff; }
 .item:nth-of-type(6n+1) h3 { font-size: clamp(22px, 1rem + 1vw, 30px); }
 .item > a:hover h3, .item > a:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
@@ -298,6 +301,7 @@ body:not(.is-home):not(#tt-body-index) .home-only { display: none; }
   background: rgba(255,255,255,0); transition: background .4s ease; cursor: pointer;
 }
 .grow-layer.on { background: var(--snow); }
+.grow-name { filter: none; }
 .grow-stage { width: min(58vmin, 440px); aspect-ratio: 1; }
 .grow-stage svg { width: 100%; height: 100%; overflow: visible; }
 .grow-name { width: min(40vmin, 300px); height: auto; opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
@@ -308,19 +312,21 @@ body:not(.is-home):not(#tt-body-index) .home-only { display: none; }
   .slide.on img { animation: none; }
 }
 
-/* dark theme details: the wordmark file is dark ink, so flip it on the dark ground */
-.top-logo .wordmark, .grow-name { filter: invert(1) brightness(1.15); }
-.item h3, .item h2 { color: var(--ink); }
-.post-body { color: #e3e6ea; }
+/* the wordmark file is dark ink: white only while the bar floats over the hero */
+.top:not(.solid) .wordmark { filter: invert(1) brightness(1.15); }
+body:not(.is-home):not(#tt-body-index) .top .wordmark, .nav-open .top .wordmark { filter: none; }
+.item:not(:has(.item-img)) h3, .item:not(:has(.item-img)) h2 { color: var(--ink); }
+.item:not(:has(.item-img)) .item-sum, .item:not(:has(.item-img)) time { color: var(--mute); }
+.post-body { color: var(--body); }
 .post-reply, .post-reply * { color: inherit; }
 .post-reply input, .post-reply textarea { background: var(--frost); color: var(--ink); border-color: var(--line); }
 
 /* guestbook tile */
-.list .t-guest { grid-column: span 1; grid-row: span 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; padding: 22px; color: #fff; transition: background .2s ease; }
-.t-guest svg { width: 26px; height: 26px; margin-bottom: auto; color: #ffb39c; }
+.list .t-guest { grid-column: span 1; grid-row: span 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; padding: 22px; color: var(--ink); background: var(--frost); border: 1px solid var(--line); box-shadow: none; transition: background .2s ease; }
+.t-guest svg { width: 26px; height: 26px; margin-bottom: auto; color: var(--maple); }
 .t-guest strong { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
-.t-guest span { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,.65); }
-.t-guest:hover { background: linear-gradient(180deg, #222731, #1a1e25); }
+.t-guest span { font-size: 13px; line-height: 1.5; color: var(--mute); }
+.t-guest:hover { background: #eceef1; }
 
 /* article meta row */
 .post-head .item-meta { display: flex; gap: 10px; align-items: center; font-size: 13px; color: var(--mute); }
@@ -333,7 +339,8 @@ body:not(.is-home):not(#tt-body-index) .home-only { display: none; }
   transition: background-color .3s ease, -webkit-backdrop-filter .3s ease, backdrop-filter .3s ease;
 }
 .top.solid, body:not(.is-home):not(#tt-body-index) .top {
-  background: rgba(14,17,21,.78); -webkit-backdrop-filter: blur(18px) saturate(1.2); backdrop-filter: blur(18px) saturate(1.2);
+  background: rgba(255,255,255,.86); -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4);
+  box-shadow: 0 1px 0 var(--line);
 }
 body:not(.is-home):not(#tt-body-index) .main { padding-top: var(--top-h); }
 .top-logo { display: flex; align-items: center; gap: 10px; flex: none; }
@@ -355,14 +362,14 @@ body:not(.is-home):not(#tt-body-index) .main { padding-top: var(--top-h); }
 .top-nav .c_cnt, .top-nav em, .top-nav img { display: none; }
 .top-nav .sub_category_list {
   position: absolute; top: 100%; left: 0; min-width: 180px; padding: 8px; margin-top: 6px; border-radius: 16px;
-  background: rgba(20,24,30,.94); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
-  border: 1px solid rgba(255,255,255,.08); box-shadow: 0 18px 40px -16px rgba(0,0,0,.7);
+  background: var(--snow);
+  border: 1px solid var(--line); box-shadow: 0 18px 40px -18px rgba(10,12,15,.35);
   opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity .18s ease, transform .18s ease, visibility .18s;
 }
 .top-nav .sub_category_list::before { content: ""; position: absolute; left: 0; right: 0; top: -8px; height: 8px; }
 .top-nav li:hover > .sub_category_list, .top-nav li:focus-within > .sub_category_list { opacity: 1; visibility: visible; transform: none; }
-.top-nav .link_sub_item { display: block; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(255,255,255,.82); white-space: nowrap; }
-.top-nav .link_sub_item:hover { background: rgba(255,255,255,.08); color: #fff; }
+.top-nav .link_sub_item { display: block; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: var(--bark); white-space: nowrap; }
+.top-nav .link_sub_item:hover { background: var(--frost); color: var(--ink); }
 .top-nav .selected > a, .top-nav a.selected { color: var(--maple); }
 
 .top-search input {
@@ -378,12 +385,12 @@ body:not(.is-home):not(#tt-body-index) .main { padding-top: var(--top-h); }
   background:
     linear-gradient(180deg, rgba(8,12,16,.5) 0%, rgba(8,12,16,0) 18%),
     linear-gradient(90deg, rgba(8,12,16,.55) 0%, rgba(8,12,16,.2) 42%, rgba(8,12,16,0) 70%),
-    linear-gradient(0deg, var(--snow) 0%, rgba(14,17,21,.85) 12%, rgba(14,17,21,0) 45%);
+    linear-gradient(0deg, rgba(8,12,16,.6) 0%, rgba(8,12,16,0) 45%);
 }
 .hero-copy { bottom: clamp(190px, 26vh, 250px); }
 .hero-ui { bottom: clamp(120px, 15vh, 150px); }
 .hero-place { top: calc(var(--top-h) + 12px); }
-body.is-home #posts, body#tt-body-index #posts { position: relative; z-index: 4; margin-top: -80px; padding-top: 0; }
+body.is-home #posts, body#tt-body-index #posts { position: relative; z-index: 4; margin-top: -80px; padding-top: 40px; background: var(--snow); border-radius: 28px 28px 0 0; }
 .section-intro { flex-basis: 100%; order: 2; margin: -12px 0 0; max-width: 640px; font-size: 15px; line-height: 1.7; color: var(--mute); }
 .section-head h2 { order: 1; }
 
@@ -443,15 +450,15 @@ body.is-home #posts, body#tt-body-index #posts { position: relative; z-index: 4;
 .post-body .container_postbtn .btn_post { height: 38px !important; padding: 0 10px !important; color: var(--ink) !important; background: none !important; border: 0 !important; }
 .post-body .container_postbtn .uoc-icon { display: flex; align-items: center; gap: 6px; }
 .post-body .container_postbtn .txt_like { font-size: 14px !important; font-weight: 600; color: var(--ink) !important; }
-.post-body .container_postbtn .ico_postbtn { filter: invert(1) brightness(1.4); opacity: .85; }
+.post-body .container_postbtn .ico_postbtn { opacity: .8; }
 .post-body .container_postbtn .btn_subscription {
   float: none !important; display: inline-flex !important; align-items: center; gap: 6px; height: 40px !important; margin: 0 !important; padding: 0 18px !important;
-  border-radius: 999px !important; border: 0 !important; background: var(--maple) !important; color: #1b0f0b !important; font-size: 14px !important; font-weight: 700;
+  border-radius: 999px !important; border: 0 !important; background: var(--maple) !important; color: #fff !important; font-size: 14px !important; font-weight: 700;
 }
 .post-body .container_postbtn .btn_subscription .txt_state { font-style: normal; color: inherit !important; font-size: 14px; }
 .post-body .container_postbtn .btn_subscription .txt_tool_id, .post-body .container_postbtn .btn_subscription .ico_check_type1 { display: none !important; }
 .post-body .container_postbtn .btn_subscription.following { background: var(--frost) !important; color: var(--ink) !important; border: 1px solid var(--line) !important; }
-.post-body .container_postbtn .layer_post { background: #1b1f26 !important; border: 1px solid var(--line) !important; border-radius: 14px !important; }
+.post-body .container_postbtn .layer_post { background: var(--snow) !important; box-shadow: 0 12px 32px -12px rgba(0,0,0,.25); border: 1px solid var(--line) !important; border-radius: 14px !important; }
 .post-body .container_postbtn .layer_post .txt_sns, .post-body .container_postbtn .layer_post a, .post-body .container_postbtn .layer_post button { color: var(--ink) !important; }
 
 /* tags: Tistory joins them with ", " text; hide the commas */
@@ -461,19 +468,19 @@ body.is-home #posts, body#tt-body-index #posts { position: relative; z-index: 4;
 /* profile card */
 .post-reply .tt_box_namecard {
   display: flex !important; align-items: center; gap: 24px; margin: 0 0 48px !important; padding: 28px 30px !important; height: auto !important;
-  border-radius: 22px; background: linear-gradient(180deg, #1b1f26, #15181e) !important; border: 1px solid rgba(255,255,255,.07) !important;
+  border-radius: 22px; background: var(--frost) !important; border: 1px solid var(--line) !important;
 }
 .post-reply .tt_box_namecard .tt_cont { flex: 1; float: none !important; width: auto !important; padding: 0 !important; }
 .post-reply .tt_box_namecard .tt_tit_cont { display: block; font-size: 18px !important; font-weight: 800; letter-spacing: -0.02em; color: var(--ink) !important; }
 .post-reply .tt_box_namecard .tt_desc { display: block; margin-top: 6px; font-size: 14px !important; line-height: 1.65 !important; color: var(--mute) !important; }
 .post-reply .tt_box_namecard .tt_btn_subscribe {
   display: inline-flex !important; align-items: center; gap: 6px; height: 38px !important; margin-top: 16px !important; padding: 0 18px !important;
-  border-radius: 999px !important; border: 0 !important; background: var(--maple) !important; color: #1b0f0b !important; font-size: 14px; font-weight: 700;
+  border-radius: 999px !important; border: 0 !important; background: var(--maple) !important; color: #fff !important; font-size: 14px; font-weight: 700;
 }
 .post-reply .tt_box_namecard .tt_btn_subscribe .tt_txt_g { color: inherit !important; font-size: 14px !important; }
-.post-reply .tt_box_namecard .tt_btn_subscribe .tt_ico_cross { filter: brightness(0) opacity(.8); }
+.post-reply .tt_box_namecard .tt_btn_subscribe .tt_ico_cross { filter: brightness(0) invert(1); }
 .post-reply .tt_box_namecard .tt_wrap_thumb { position: static !important; flex: none; }
-.post-reply .tt_box_namecard .tt_thumb_g { display: block; width: 72px !important; height: 72px !important; border-radius: 50%; background-size: cover; background-color: #fff; border: 3px solid rgba(255,255,255,.08); }
+.post-reply .tt_box_namecard .tt_thumb_g { display: block; width: 72px !important; height: 72px !important; border-radius: 50%; background-size: cover; background-color: #fff; border: 1px solid var(--line); }
 
 /* comment form and list */
 .post-reply .tt-box-total { padding-bottom: 16px !important; border-bottom: 1px solid var(--line) !important; }
@@ -485,7 +492,7 @@ body.is-home #posts, body#tt-body-index #posts { position: relative; z-index: 4;
 .post-reply .tt_wrap_write { flex: 1; margin: 0 !important; }
 .post-reply .tt-box-account { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px !important; }
 .post-reply .tt-box-account input, .post-reply .tt-box-textarea {
-  width: 100% !important; margin: 0 !important; border-radius: 14px !important; background: var(--frost) !important; color: var(--ink) !important;
+  width: 100% !important; margin: 0 !important; border-radius: 14px !important; background: var(--snow) !important; color: var(--ink) !important;
   border: 1px solid var(--line) !important; font: inherit; font-size: 15px !important; box-shadow: none !important;
 }
 .post-reply .tt-box-account input { height: 46px !important; padding: 0 16px !important; }
@@ -496,14 +503,14 @@ body.is-home #posts, body#tt-body-index #posts { position: relative; z-index: 4;
   background: none !important; color: var(--ink) !important; font: inherit; font-size: 15px !important; box-shadow: none !important;
 }
 .post-reply .tt_txt_user { display: block; padding: 12px 16px 0 !important; font-size: 13px; color: var(--mute) !important; }
-.post-reply .tt-box-account input:focus, .post-reply .tt-box-textarea:focus-within { outline: none; border-color: rgba(255,255,255,.35) !important; }
+.post-reply .tt-box-account input:focus, .post-reply .tt-box-textarea:focus-within { outline: none; border-color: rgba(22,25,30,.35) !important; }
 .post-reply textarea:focus, .post-reply .tt-cmt:focus { outline: none; }
 .post-reply ::placeholder, .post-reply .tt-cmt:empty::before { color: var(--mute) !important; }
 .post-reply .tt-box-write { display: flex !important; justify-content: flex-end; align-items: center; gap: 14px; margin-top: 10px !important; }
 .post-reply .tt-xe-label-text { font-size: 13px; color: var(--mute) !important; }
 .post-reply .tt-btn_register {
   height: 40px !important; min-width: 76px; padding: 0 20px !important; border-radius: 999px !important; border: 0 !important;
-  background: var(--maple) !important; color: #1b0f0b !important; font-size: 14px !important; font-weight: 700;
+  background: var(--maple) !important; color: #fff !important; font-size: 14px !important; font-weight: 700;
 }
 .post-reply .tt-btn_register:disabled { background: var(--frost) !important; color: var(--mute) !important; }
 .post-reply .tt-list-reply, .post-reply .tt-item-reply, .post-reply .tt-list-reply-comment { border-color: var(--line) !important; background: none !important; }
@@ -512,7 +519,7 @@ body.is-home #posts, body#tt-body-index #posts { position: relative; z-index: 4;
 .post-reply .tt_box_namecard { min-height: 0 !important; }
 .post-reply .tt_box_namecard .tt_wrap_thumb { width: 72px !important; height: 72px !important; border-radius: 50%; overflow: hidden; background: #fff; }
 .post-reply .tt_box_namecard .tt_thumb_g { width: 100% !important; height: 100% !important; border: 0; background-position: center; }
-.post-reply textarea { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.2) transparent; }
+.post-reply textarea { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,.2) transparent; }
 /* comments are login-only (owner's choice, 2026-11-01): hide the guest name/password fields */
 .post-reply .tt-box-account { display: none !important; }
 
@@ -543,3 +550,47 @@ body.is-home .not-home, body#tt-body-index .not-home { display: none; }
   .post-body table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 14px; }
   .post-body th, .post-body td { padding: 8px 8px; }
 }
+
+/* ---------- white ground (v0.7.0) ---------- */
+/* top bar: white text over the hero, dark text once it turns solid, on inner pages, and while the phone menu is open */
+.top.solid .top-nav .link_tit, .top.solid .top-nav .link_item,
+body:not(.is-home):not(#tt-body-index) .top-nav .link_tit, body:not(.is-home):not(#tt-body-index) .top-nav .link_item,
+.nav-open .top-nav .link_tit, .nav-open .top-nav .link_item { color: var(--ink); }
+.top.solid .top-nav .link_tit:hover, .top.solid .top-nav .link_item:hover, .top.solid .top-nav li:focus-within > .link_item,
+body:not(.is-home):not(#tt-body-index) .top-nav .link_item:hover { background: var(--frost); }
+.top.solid .top-search input, body:not(.is-home):not(#tt-body-index) .top-search input, .nav-open .top-search input {
+  color: var(--ink); background: var(--frost); border-color: transparent;
+}
+.top.solid .top-search input::placeholder, body:not(.is-home):not(#tt-body-index) .top-search input::placeholder, .nav-open .top-search input::placeholder { color: var(--mute); }
+.top.solid .top-search input:focus, body:not(.is-home):not(#tt-body-index) .top-search input:focus { background: var(--snow); border-color: var(--line); }
+.top-nav .selected > a, .top-nav a.selected { color: var(--maple); }
+.top:not(.solid) .top-nav .category_list > li > .selected, .top:not(.solid) .top-nav .category_list > li.selected > a { color: #ff8a6e; }
+.nav-open .top .top-nav .selected > a { color: var(--maple); }
+@media (max-width: 900px) {
+  .top.solid .top-menu, body:not(.is-home):not(#tt-body-index) .top-menu, .nav-open .top-menu { color: var(--ink); background: var(--frost); border-color: transparent; }
+  .nav-open .top { box-shadow: 0 1px 0 var(--line); }
+  .top-panel { box-shadow: 0 0 0 100vmax rgba(10,12,15,.35); }
+  .top-nav .sub_category_list .link_sub_item { color: var(--bark); }
+  .top-nav .sub_category_list .link_sub_item:hover { background: none; color: var(--maple); }
+  body.is-home #posts, body#tt-body-index #posts { border-radius: 22px 22px 0 0; padding-top: 28px; }
+}
+/* photo cards keep white type over their dark overlay */
+.item:has(.item-img) h3, .item:has(.item-img) h2 { color: #fff; }
+/* reading: quotes and code on a soft grey, links in the logo red */
+.post-body img { border: 1px solid var(--line); }
+.post-head h1 { color: var(--ink); }
+::selection { background: rgba(180,42,30,.18); }
+/* the credit line carries an inline grey picked for the dark ground; use the page's own muted grey */
+.post-body .post-credit, .post-body .contents_style p.post-credit { color: var(--mute) !important; }
+/* Tistory gives the profile card's subscribe button a 32px bottom margin, which left a tall empty band in the card */
+.post-reply .tt_box_namecard .tt_btn_subscribe { margin-bottom: 0 !important; }
+/* profile card: the tree-and-name logo heads the card instead of the round profile photo (owner, 2026-11-01);
+   the logo already says TreeoLab, so the text title is kept for screen readers only */
+.post-reply .tt_box_namecard { flex-direction: column; align-items: flex-start; gap: 14px; }
+.post-reply .tt_box_namecard .tt_wrap_thumb {
+  order: -1; width: 200px !important; height: 50px !important; border-radius: 0; overflow: visible;
+  background: url(https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.6.12/treeolab-header.png) left center / contain no-repeat;
+}
+.post-reply .tt_box_namecard .tt_thumb_g { display: none !important; }
+.post-reply .tt_box_namecard .tt_tit_cont { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.post-reply .tt_box_namecard .tt_desc { margin-top: 0; }
