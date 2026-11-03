@@ -615,3 +615,7 @@ body.is-home #posts, body#tt-body-index #posts { margin-top: -40px; padding-top:
 .post-reply .tt_box_namecard .tt_wrap_thumb { margin: 0 !important; }
 /* the clip tile still carried the dark-theme tile ground and border, which showed as a dark outline; match the other cards' grey edge */
 .list .t-video { background: var(--frost); border-color: var(--line); box-shadow: none; }
+/* iPhone Safari gives buttons its own side padding, which pushed the pause and next icons right of centre */
+.icon-btn, .t-play, .top-menu, .cat-toggle { -webkit-appearance: none; appearance: none; }
+.icon-btn, .t-play { padding: 0; line-height: 0; }
+.icon-btn svg, .t-play svg { display: block; }
