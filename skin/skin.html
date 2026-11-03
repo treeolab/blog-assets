@@ -6,20 +6,20 @@
   <meta name="title" content="[##_page_title_##] :: [##_title_##]">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]">
-  <link rel="icon" href="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/favicon.ico" sizes="any">
-  <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/treeolab-icon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/treeolab-icon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
   <link rel="stylesheet" href="./style.css">
-  <link id="tl-tree" rel="prefetch" href="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/treeolab-tree.svg">
-  <link id="tl-wordmark" rel="prefetch" href="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/treeolab-wordmark.png">
-  <script src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/treeolab.js" defer></script>
+  <link id="tl-tree" rel="prefetch" href="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/treeolab-tree.svg">
+  <link id="tl-wordmark" rel="prefetch" href="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/treeolab-wordmark.png">
+  <script src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/treeolab.js" defer></script>
 </head>
 <body id="[##_body_id_##]">
 <s_t3>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 
 <header class="top" id="top">
-  <a class="top-logo" href="[##_blog_link_##]" data-grow><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/treeolab-icon.png" alt=""><img class="wordmark" src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/treeolab-wordmark.png" alt="[##_title_##]"></a>
+  <a class="top-logo" href="[##_blog_link_##]" data-grow><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/treeolab-icon.png" alt=""><img class="wordmark" src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/treeolab-wordmark.png" alt="[##_title_##]"></a>
   <div class="top-panel" id="top-panel">
     <nav class="top-nav" aria-label="카테고리">[##_category_list_##]</nav>
     <form class="top-search" role="search" onsubmit="var q=this.q.value.trim(); if(q){location.href='[##_blog_link_##]search/'+encodeURIComponent(q);} return false;">
@@ -27,22 +27,38 @@
       <input id="tl-q" name="q" type="search" placeholder="검색">
     </form>
   </div>
+  <div class="top-admin" id="top-admin" hidden>
+    <button class="top-admin-btn" type="button" aria-expanded="false" aria-controls="top-admin-menu" aria-label="블로그 관리 바로가기">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 19.5c1.3-3.2 4-4.9 7.2-4.9s5.9 1.7 7.2 4.9"/></svg>
+    </button>
+    <div class="top-admin-menu" id="top-admin-menu">
+      <p class="top-admin-title">블로그 관리</p>
+      <a href="[##_blog_link_##]manage/statistics/blog">방문 통계</a>
+      <a href="[##_blog_link_##]manage/statistics/referrer">유입 경로</a>
+      <a href="[##_blog_link_##]manage/post">글쓰기</a>
+      <a href="[##_blog_link_##]manage/posts">글 관리</a>
+      <a href="[##_blog_link_##]manage/comments">댓글 관리</a>
+      <a href="[##_blog_link_##]manage/guestbook">방명록 관리</a>
+      <a href="[##_blog_link_##]manage/design/skin/edit">스킨 편집</a>
+      <a href="[##_blog_link_##]manage/">블로그 관리 홈</a>
+    </div>
+  </div>
   <button class="top-menu" type="button" aria-expanded="false" aria-controls="top-panel">메뉴</button>
 </header>
 
 <div class="shell">
   <main class="main" id="main">
     <section class="hero" aria-label="캐나다에서 보낸 계절들" data-hold="6000">
-      <figure class="slide" data-place="캔모어 · 2022 가을"><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-01.jpg" alt=""></figure>
-      <figure class="slide" data-place="레이크 루이스 근처 보우강"><video data-src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-v01.mp4" data-sm="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-v01-sm.mp4" poster="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-v01.jpg" muted playsinline preload="none"></video></figure>
-      <figure class="slide" data-place="캔모어 · 호수에 비친 숲"><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-02.jpg" alt="" loading="lazy"></figure>
-      <figure class="slide" data-place="캔모어 · 보우강"><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-03.jpg" alt="" loading="lazy"></figure>
-      <figure class="slide" data-place="첫 겨울 · 프레리 너머 로키"><video data-src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-v02.mp4" data-sm="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-v02-sm.mp4" poster="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-v02.jpg" muted playsinline preload="none"></video></figure>
-      <figure class="slide" data-place="밴프 · 2024 봄"><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-06.jpg" alt="" loading="lazy"></figure>
-      <figure class="slide" data-place="요호 · 에메랄드 레이크"><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-04.jpg" alt="" loading="lazy"></figure>
-      <figure class="slide" data-place="드럼헬러 가는 길 · 카놀라 밭"><video data-src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-v03.mp4" data-sm="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-v03-sm.mp4" poster="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-v03.jpg" muted playsinline preload="none"></video></figure>
-      <figure class="slide" data-place="드럼헬러 근처 · 여름 들판"><video data-src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-v05.mp4" data-sm="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-v05-sm.mp4" poster="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-v05.jpg" muted playsinline preload="none"></video></figure>
-      <figure class="slide" data-place="드럼헬러 · 배드랜드"><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-05.jpg" alt="" loading="lazy"></figure>
+      <figure class="slide" data-place="캔모어 · 2022 가을"><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-01.jpg" alt=""></figure>
+      <figure class="slide" data-place="레이크 루이스 근처 보우강"><video data-src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-v01.mp4" data-sm="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-v01-sm.mp4" poster="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-v01.jpg" muted playsinline preload="none"></video></figure>
+      <figure class="slide" data-place="캔모어 · 호수에 비친 숲"><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-02.jpg" alt="" loading="lazy"></figure>
+      <figure class="slide" data-place="캔모어 · 보우강"><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-03.jpg" alt="" loading="lazy"></figure>
+      <figure class="slide" data-place="첫 겨울 · 프레리 너머 로키"><video data-src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-v02.mp4" data-sm="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-v02-sm.mp4" poster="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-v02.jpg" muted playsinline preload="none"></video></figure>
+      <figure class="slide" data-place="밴프 · 2024 봄"><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-06.jpg" alt="" loading="lazy"></figure>
+      <figure class="slide" data-place="요호 · 에메랄드 레이크"><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-04.jpg" alt="" loading="lazy"></figure>
+      <figure class="slide" data-place="드럼헬러 가는 길 · 카놀라 밭"><video data-src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-v03.mp4" data-sm="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-v03-sm.mp4" poster="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-v03.jpg" muted playsinline preload="none"></video></figure>
+      <figure class="slide" data-place="드럼헬러 근처 · 여름 들판"><video data-src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-v05.mp4" data-sm="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-v05-sm.mp4" poster="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-v05.jpg" muted playsinline preload="none"></video></figure>
+      <figure class="slide" data-place="드럼헬러 · 배드랜드"><img src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-05.jpg" alt="" loading="lazy"></figure>
       <div class="hero-shade"></div>
 
       <div class="hero-copy">
@@ -104,7 +120,7 @@
         </s_list_empty>
 
         <figure class="tile t-video home-only">
-          <video data-src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/hero-v03-sm.mp4" muted playsinline loop preload="none"></video>
+          <video data-src="https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/hero-v03-sm.mp4" muted playsinline loop preload="none"></video>
           <span class="t-chip">드럼헬러 가는 길</span>
           <button class="t-play" type="button" aria-label="영상 재생">
             <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 2.8v10.4c0 .6.7 1 1.2.6l8-5.2c.5-.3.5-1 0-1.3l-8-5.2C5.7 1.8 5 2.1 5 2.8z"/></svg>
@@ -183,7 +199,7 @@
           <h2>[##_notice_rep_title_##]</h2>
           <p class="item-sum">[##_notice_rep_summary_##]</p>
         </div>
-        <div class="item-thumb" style="background-image:url('https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.1/treeolab-icon.png')"><s_notice_rep_thumbnail><img src="[##_notice_rep_thumbnail_url_##]" alt="" loading="lazy"></s_notice_rep_thumbnail></div>
+        <div class="item-thumb" style="background-image:url('https://cdn.jsdelivr.net/gh/treeolab/blog-assets@v0.7.6/treeolab-icon.png')"><s_notice_rep_thumbnail><img src="[##_notice_rep_thumbnail_url_##]" alt="" loading="lazy"></s_notice_rep_thumbnail></div>
       </a>
     </article>
     </div></div>

@@ -282,3 +282,16 @@
     else { started = performance.now(); if (!paused) { var w = slides[i].querySelector('video'); if (w) w.play().catch(function () {}); } raf = requestAnimationFrame(tick); }
   });
 })();
+
+/* ---------- owner shortcuts: shown only when Tistory says the viewer runs this blog ---------- */
+(function () {
+  var box = document.getElementById('top-admin');
+  var role = window.T && T.config && T.config.ROLE;
+  if (!box || ['owner', 'manager'].indexOf(role) < 0) return;
+  box.hidden = false;
+  var btn = box.querySelector('.top-admin-btn');
+  function set(open) { box.classList.toggle('open', open); btn.setAttribute('aria-expanded', open); }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); set(!box.classList.contains('open')); });
+  document.addEventListener('click', function (e) { if (!box.contains(e.target)) set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+})();
