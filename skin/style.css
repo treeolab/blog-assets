@@ -642,3 +642,12 @@ body.is-home #posts, body#tt-body-index #posts { margin-top: -40px; padding-top:
   .top-admin { margin-left: auto; }
   .top-admin + .top-menu { margin-left: 8px; }
 }
+/* mid-size screens: keep category names on one line now that the owner button also sits in the bar */
+.top-nav .link_tit, .top-nav .link_item { white-space: nowrap; }
+@media (min-width: 901px) and (max-width: 1180px) {
+  .top { gap: 14px; }
+  .top-panel { gap: 12px; }
+  .top-nav .link_tit, .top-nav .link_item { padding: 0 9px; font-size: 14px; }
+  .top-search input { width: 120px; }
+  .top-search input:focus { width: 160px; }
+}
